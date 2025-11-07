@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gh-client"
+version = "0.1.0"
+description = "Tiny GitHub API CLI for GitHub REST"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "httpx>=0.28",
+  "python-dotenv>=1.0",
+]
+
+[project.scripts]
+gh-client = "cli:main"
+
+[tool.setuptools]
+# We’re using the “src layout” but with *modules* instead of a package dir.
+py-modules = ["cli", "gh_client"]
+package-dir = {"" = "src"}
